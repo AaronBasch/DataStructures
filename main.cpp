@@ -17,5 +17,7 @@ int main()
   test.insert(4,2);
   test.append(100);
   test.print();
+  test.remove(3);
+  test.print();
   return 0;
 }

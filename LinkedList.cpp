@@ -30,7 +30,6 @@ void LinkedList::append(int data)
   temp1 -> next = temp2;
 }
 
-
 //insert data at n location:
 void LinkedList::insert(int data, int n)
 {
@@ -50,6 +49,23 @@ void LinkedList::insert(int data, int n)
   temp2 -> next = temp1;
 }
 
+//delete data at n location
+void LinkedList::remove(int n)
+{
+  Node* temp1 = head;
+  if(n == 1){
+    head = temp1 -> next;
+    delete temp1;
+    return;
+  }
+  for(int i = 1; i < n - 1; i++){
+    temp1 = temp1 -> next;
+  }
+  Node* temp2 = temp1 -> next;
+  temp1 -> next = temp2 -> next;
+  delete temp2;
+}
+
 //pretty print list
 void LinkedList::print(){
   Node* temp = head;
@@ -57,4 +73,5 @@ void LinkedList::print(){
     std::cout << temp -> data << " ";
     temp = temp -> next;
   }
+  std::cout << std::endl;
 }
