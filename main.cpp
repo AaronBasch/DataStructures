@@ -4,8 +4,10 @@
 
 #include <iostream>
 #include "LinkedList.h"
+#include "Doubly.h"
 
 LinkedList test = LinkedList();
+Doubly test2 = Doubly();
 
 int main()
 {
@@ -21,6 +23,12 @@ int main()
   test.print();
   test.revrec(test.getHead());
   test.print();
+  test2.insertAtStart(5);
+  test2.insertAtStart(54);
+  test2.insertAtStart(556);
+  test2.insertAtStart(2);
+  test2.insertAtStart(35);
+  test2.print();
 
   return 0;
 }
