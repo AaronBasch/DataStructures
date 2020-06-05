@@ -17,7 +17,10 @@ int main()
   test.insert(4,2);
   test.append(100);
   test.print();
-  test.remove(3);
+  test.reverse();
   test.print();
+  test.revrec(test.getHead());
+  test.print();
+
   return 0;
 }

@@ -13,6 +13,12 @@ LinkedList::LinkedList()
   tail = NULL;
 }
 
+//return head Node
+Node* LinkedList::getHead()
+{
+  return head;
+}
+
 //append data to end of list:
 void LinkedList::append(int data)
 {
@@ -65,6 +71,35 @@ void LinkedList::remove(int n)
   temp1 -> next = temp2 -> next;
   delete temp2;
 }
+
+//reverse list recursively
+void LinkedList::revrec(Node* p)
+{
+  if(p->next == NULL){
+    head = p;
+    return;
+  }
+  revrec(p->next);
+  Node *q = p -> next;
+  q -> next = p;
+  p -> next = NULL;
+}
+
+//reverse list iterative approach
+void LinkedList::reverse()
+{
+  Node *current, *prev, *next;
+  current = head;
+  prev = NULL;
+  while(current != NULL){
+    next = current -> next;
+    current -> next = prev;
+    prev = current;
+    current = next;
+  }
+  head = prev;
+}
+
 
 //pretty print list
 void LinkedList::print(){
