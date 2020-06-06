@@ -11,6 +11,7 @@ void Queue::Enqueue(int data)
   Node *temp = new Node();
   temp -> data = data;
   temp -> next = head;
+  head -> prev = temp;
   if(head == NULL)
     tail = temp;
   head = temp;
@@ -18,13 +19,10 @@ void Queue::Enqueue(int data)
 
 int Queue::Dequeue()
 {
-  Node *temp1 = head;
+  Node *temp1 = tail;
   int data = tail->data;
-  delete tail;
-  while(temp1!=NULL){
-    temp1 = temp1 -> next;
-  }
-  tail = temp1;
+  tail = tail -> prev;
+  delete temp1;
   return data;
 }
 
