@@ -7,9 +7,9 @@
 #include "Stack.h"
 using namespace std;
 
-LinkedList singly = LinkedList();
-Doubly dub = Doubly();
-Stack stack = Stack();
+LinkedList singly;
+Doubly dub;
+Stack stack;
 
 int main()
 {
