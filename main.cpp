@@ -5,30 +5,26 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "Doubly.h"
+#include "Stack.h"
+using namespace std;
 
-LinkedList test = LinkedList();
-Doubly test2 = Doubly();
+LinkedList singly = LinkedList();
+Doubly dub = Doubly();
+Stack stack = Stack();
 
 int main()
 {
-  test.append(100);
-  test.insert(5,2);
-  test.insert(7,2);
-  test.insert(9,3);
-  test.insert(90,4);
-  test.insert(4,2);
-  test.append(100);
-  test.print();
-  test.reverse();
-  test.print();
-  test.revrec(test.getHead());
-  test.print();
-  test2.insertAtStart(5);
-  test2.insertAtStart(54);
-  test2.insertAtStart(556);
-  test2.insertAtStart(2);
-  test2.insertAtStart(35);
-  test2.print();
+  stack.push(5);
+  stack.push(534);
+  stack.push(55);
+  cout << stack.pop() << endl;
+  cout << stack.pop() << endl;
+  cout << stack.top() << endl;
+  cout << stack.isEmpty() << endl;
+  stack.push(34);
+  cout << stack.pop() << endl;
+  cout << stack.pop() << endl;
+  cout << stack.isEmpty() << endl;
 
   return 0;
 }
