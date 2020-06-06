@@ -5,11 +5,10 @@
 #include "LinkedList.h"
 #include "Doubly.h"
 #include "Stack.h"
+#include "LLStack.h"
 using namespace std;
 
-LinkedList singly;
-Doubly dub;
-Stack stack;
+LLStack stack;
 
 int main()
 {
