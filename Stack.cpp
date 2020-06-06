@@ -3,25 +3,35 @@
 
 Stack::Stack()
 {
-  t = -1;
+  top = -1;
 }
 
 //push int to top of stack, increase top.
-void Stack::push(int x)
+void Stack::Push(int x)
 {
-  A[++t] = x;
+  if(top == MAX_SIZE -1){
+    std::cout << "Error: stack overflow";
+    return;
+  }
+  A[++top] = x;
 }
 
-int Stack::pop()
+int Stack::Pop()
 {
-  return A[t--];
+  if(IsEmpty()){
+    std::cout << "stack is empty\n";
+    return 0;
+  }
+  return A[top--];
 }
 
-int Stack::top()
+int Stack::Top()
 {
-  return A[t];
+  return A[top];
 }
 
-bool Stack::isEmpty(){
-  return t+1;
+bool Stack::IsEmpty(){
+  if(top == -1)
+    return true;
+  return false;
 }

@@ -1,6 +1,5 @@
-// This program implements linked list as a class
+// This program implements various data structure classes
 // multiple functions in separate header file:
-// insert, delete, reverse, print
 
 #include <iostream>
 #include "LinkedList.h"
@@ -14,17 +13,19 @@ Stack stack = Stack();
 
 int main()
 {
-  stack.push(5);
-  stack.push(534);
-  stack.push(55);
-  cout << stack.pop() << endl;
-  cout << stack.pop() << endl;
-  cout << stack.top() << endl;
-  cout << stack.isEmpty() << endl;
-  stack.push(34);
-  cout << stack.pop() << endl;
-  cout << stack.pop() << endl;
-  cout << stack.isEmpty() << endl;
+  cout << stack.IsEmpty() << endl;
+  stack.Push(5);
+  stack.Push(534);
+  stack.Push(55);
+  cout << stack.IsEmpty() << endl;
+  cout << stack.Pop() << endl;
+  cout << stack.Pop() << endl;
+  cout << stack.Top() << endl;
+  cout << stack.IsEmpty() << endl;
+  stack.Push(34);
+  cout << stack.Pop() << endl;
+  cout << stack.Pop() << endl;
+  cout << stack.IsEmpty() << endl;
 
   return 0;
 }
