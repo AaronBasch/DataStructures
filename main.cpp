@@ -2,29 +2,22 @@
 // multiple functions in separate header file:
 
 #include <iostream>
-#include "LinkedList.h"
-#include "Doubly.h"
-#include "Stack.h"
-#include "LLStack.h"
+#include "BinarySearchTree.h"
 using namespace std;
 
-LLStack stack;
+BinarySearchTree s;
 
 int main()
 {
-  cout << stack.IsEmpty() << endl;
-  stack.Push(5);
-  stack.Push(534);
-  stack.Push(55);
-  cout << stack.IsEmpty() << endl;
-  cout << stack.Pop() << endl;
-  cout << stack.Pop() << endl;
-  cout << stack.Top() << endl;
-  cout << stack.IsEmpty() << endl;
-  stack.Push(34);
-  cout << stack.Pop() << endl;
-  cout << stack.Pop() << endl;
-  cout << stack.IsEmpty() << endl;
-
-  return 0;
+  s.setRoot(s.insert(s.getRoot(),5));
+  s.setRoot(s.insert(s.getRoot(),7));
+  s.setRoot(s.insert(s.getRoot(),4));
+  s.setRoot(s.insert(s.getRoot(),7));
+  s.setRoot(s.insert(s.getRoot(),9));
+  s.setRoot(s.insert(s.getRoot(),24));
+  s.setRoot(s.insert(s.getRoot(),2));
+  cout << s.search(s.getRoot(), 2);
 }
+
+
+//g++ -o reverse main.cpp LinkedList.cpp Doubly.cpp Stack.cpp LLStack.cpp
