@@ -41,3 +41,32 @@ bool BinarySearchTree::search(BstNode* root, int data){
   else if(data <= root -> data) return search(root -> left, data);
   else return search(root -> right, data);
 }
+
+int BinarySearchTree::min(BstNode* root)
+{
+  if(root == NULL){
+    std::cout << "tree is empty";
+    return -1;
+  }
+  if(root -> left == NULL) return root -> data;
+  else return min(root->left);
+}
+
+int BinarySearchTree::max(BstNode* root)
+{
+  if(root == NULL){
+    std::cout << "tree is empty";
+    return -1;
+  }
+  if(root -> right == NULL) return root -> data;
+  else return max(root->right);
+}
+
+int BinarySearchTree::height(BstNode* root)
+{
+  if(root == NULL) return -1;
+  int lHeight, rHeight;
+  lHeight = height(root->left);
+  rHeight = height(root->right);
+  return std::max(lHeight, rHeight) + 1;
+}

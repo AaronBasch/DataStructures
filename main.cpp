@@ -17,6 +17,9 @@ int main()
   s.setRoot(s.insert(s.getRoot(),24));
   s.setRoot(s.insert(s.getRoot(),2));
   cout << s.search(s.getRoot(), 2);
+  cout << s.min(s.getRoot());
+  cout << s.max(s.getRoot());
+  cout << s.height(s.getRoot());
 }
 
 

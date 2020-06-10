@@ -20,6 +20,9 @@ class BinarySearchTree
     BstNode* insert(BstNode *root, int data);
     void remove(int data);
     bool search(BstNode *root, int data);
+    int min(BstNode* root);
+    int max(BstNode* root);
+    int height(BstNode* root);
 };
 
 #endif
