@@ -20,6 +20,7 @@ class BinarySearchTree
     BstNode* insert(BstNode *root, int data);
     BstNode* remove(BstNode* root, int data);
     BstNode* findMin(BstNode* root);
+    BstNode* findMax(BstNode* root);
     bool search(BstNode *root, int data);
     int min(BstNode* root);
     int max(BstNode* root);
@@ -30,6 +31,9 @@ class BinarySearchTree
     void PostOrder(BstNode* root);
     bool isBst(BstNode* root);
     bool isBstUtil(BstNode* root, int min, int max);
+    BstNode* findAddress(BstNode* root, int data);
+    BstNode* getSucc(BstNode* root, int data);
+    BstNode* getPred(BstNode* root, int data);
 };
 
 #endif

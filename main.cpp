@@ -26,14 +26,15 @@ int main()
   cout << "\npreorder: ";
   s.PreOrder(s.getRoot());
   cout << "\ninorder: ";
-  s.PreOrder(s.getRoot());
-  cout << "\nnew inorder without 7: ";
-  s.setRoot(s.remove(s.getRoot(),7));
   s.InOrder(s.getRoot());
   cout << "\npostorder: ";
   s.PostOrder(s.getRoot());
   if(s.isBst(s.getRoot())) cout << "is BST";
   else cout << "not BST";
+  cout << "\npredecessor of 6 is " << s.getPred(s.getRoot(),6)->data;
+  cout << "\npredecessor of 3 is " << s.getPred(s.getRoot(),3)->data;
+  cout << "\npredecessor of 5 is " << s.getPred(s.getRoot(),5)->data;
+  cout << "\npredecessor of 4 is " << s.getPred(s.getRoot(),4)->data;
 
 }
 

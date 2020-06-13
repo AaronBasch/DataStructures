@@ -126,10 +126,12 @@ BstNode* BinarySearchTree::remove(BstNode* root, int data)
   else if(data > root->data) root->right= remove(root ->right, data);
   else
   {
+    //case 1: no children
     if(root->left == NULL && root->right == NULL){
       delete root;
       root = NULL;
     }
+    //case 2: one child
     else if (root -> left == NULL){
       BstNode* temp = root;
       root = root -> right;
@@ -140,6 +142,7 @@ BstNode* BinarySearchTree::remove(BstNode* root, int data)
       root = root -> left;
       delete temp;
     }
+    //case 3: 2 children
     else{
       BstNode* temp = findMin(root->right);
       root->data = temp->data;
@@ -151,7 +154,14 @@ BstNode* BinarySearchTree::remove(BstNode* root, int data)
 
 //find min helper function for remove()
 BstNode* BinarySearchTree::findMin(BstNode* root){
+  if(root == NULL) return NULL;
   while(root->left !=NULL) root = root->left;
+  return root;
+}
+
+BstNode* BinarySearchTree::findMax(BstNode* root){
+  if(root == NULL) return NULL;
+  while(root->right != NULL) root = root->right;
   return root;
 }
 
@@ -169,4 +179,58 @@ bool BinarySearchTree::isBstUtil(BstNode* root, int min, int max)
 bool BinarySearchTree::isBst(BstNode* root)
 {
   return isBstUtil(root, INT_MIN, INT_MAX);
+}
+
+
+//helper
+BstNode* BinarySearchTree::findAddress(BstNode* root, int data)
+{
+  if(root->data > data) return findAddress(root->left, data);
+  else if(root->data < data) return findAddress(root->right, data);
+  else return root;
+}
+
+//InOrder Successory...
+BstNode* BinarySearchTree::getSucc(BstNode* root, int data)
+{
+  BstNode* current = findAddress(root,data);
+  if(current == NULL) return NULL;
+  //case 1: node has right subtree
+  if(current -> right != NULL){
+    return findMin(current->right);
+  }
+  //case 2: no right subtree
+  else{
+    BstNode* successor = NULL;
+    BstNode* ancestor = root;
+    while(ancestor != current){
+      if(current->data < ancestor->data){
+        successor = ancestor;
+        ancestor = ancestor->left;
+      }
+      else ancestor = ancestor -> right;
+    }
+    return successor;
+  }
+}
+
+//inOrder predecessor
+BstNode* BinarySearchTree::getPred(BstNode* root, int data)
+{
+  BstNode* current = findAddress(root,data);
+  if(current == NULL) return NULL;
+  if(current -> left != NULL) return findMax(current->left);
+  else{
+    BstNode* predecessor = NULL;
+    BstNode* ancestor = root;
+    while(ancestor->data!=data){
+      if(data > ancestor->data){
+        predecessor = ancestor;
+        ancestor = ancestor->right;
+      }
+      else ancestor = ancestor->left;
+      }
+      return predecessor;
+    }
+
 }
